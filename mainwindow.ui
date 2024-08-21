@@ -20,7 +20,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="res.qrc">
-    <normaloff>:/icons/heat-64.png</normaloff>:/icons/heat-64.png</iconset>
+    <normaloff>:/icons/chartline.ico</normaloff>:/icons/chartline.ico</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout" stretch="0,10,0">

@@ -197,7 +197,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
      // Инициализируем график Temperature 5 и привязываем его к Осям
-     graphicTemperature_5 = new QCPGraph(wGraphic_1->xAxis, wGraphic_1->yAxis);
+     graphicTemperature_5 = new QCPGraph(wGraphic_1->xAxis, wGraphic_1->yAxis2);
      wGraphic_1->addPlottable(graphicTemperature_5);  // Устанавливаем график на полотно
      QPen penTemperature_5=graphicTemperature_5->pen();
      penTemperature_5.setColor(QColor(0xff,0x80,0x00));
@@ -208,7 +208,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
      // Инициализируем график Temperature 6 и привязываем его к Осям
-     graphicTemperature_6 = new QCPGraph(wGraphic_1->xAxis, wGraphic_1->yAxis);
+     graphicTemperature_6 = new QCPGraph(wGraphic_1->xAxis, wGraphic_1->yAxis2);
      wGraphic_1->addPlottable(graphicTemperature_6);  // Устанавливаем график на полотно
      QPen penTemperature_6=graphicTemperature_6->pen();
      penTemperature_6.setColor(Qt::darkBlue);
@@ -219,7 +219,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
      // Инициализируем график Temperature 7 и привязываем его к Осям
-     graphicTemperature_7 = new QCPGraph(wGraphic_1->xAxis, wGraphic_1->yAxis);
+     graphicTemperature_7 = new QCPGraph(wGraphic_1->xAxis, wGraphic_1->yAxis2);
      wGraphic_1->addPlottable(graphicTemperature_7);  // Устанавливаем график на полотно
      QPen penTemperature_7=graphicTemperature_7->pen();
      penTemperature_7.setColor(QColor(0x00,0xBF,0xFF));
@@ -230,7 +230,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
      // Инициализируем график Temperature 8 и привязываем его к Осям
-     graphicTemperature_8 = new QCPGraph(wGraphic_1->xAxis, wGraphic_1->yAxis);
+     graphicTemperature_8 = new QCPGraph(wGraphic_1->xAxis, wGraphic_1->yAxis2);
      wGraphic_1->addPlottable(graphicTemperature_8);  // Устанавливаем график на полотно
      QPen penTemperature_8=graphicTemperature_8->pen();
      penTemperature_8.setColor(Qt::darkGray);
