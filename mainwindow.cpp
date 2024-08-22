@@ -3,6 +3,7 @@
 #include "ui_dialogconfig.h"
 #include "fmdlg.h"
 #include "modbusreader.h"
+#include "dconreader.h"
 
 #include <QPainter>
 #include <QTextEdit>
@@ -10,8 +11,8 @@
 #include <QTextTable>
 
 
-ModbusReader mbReader;
-
+//ModbusReader mbReader;
+DconReader dconReader;
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -67,14 +68,14 @@ MainWindow::MainWindow(QWidget *parent)
 
     LoadIniFile(qApp->applicationDirPath()+"/"+iniFile);
 
-    connect(&mbReader, &ModbusReader::readICP_7018_ch1, &temperature_1, &AnalogInputChannel::RawValueReaded);
-    connect(&mbReader, &ModbusReader::readICP_7018_ch2, &temperature_2, &AnalogInputChannel::RawValueReaded);
-    connect(&mbReader, &ModbusReader::readICP_7018_ch3, &temperature_3, &AnalogInputChannel::RawValueReaded);
-    connect(&mbReader, &ModbusReader::readICP_7018_ch4, &temperature_4, &AnalogInputChannel::RawValueReaded);
-    connect(&mbReader, &ModbusReader::readICP_7018_ch5, &temperature_5, &AnalogInputChannel::RawValueReaded);
-    connect(&mbReader, &ModbusReader::readICP_7018_ch6, &temperature_6, &AnalogInputChannel::RawValueReaded);
-    connect(&mbReader, &ModbusReader::readICP_7018_ch7, &temperature_7, &AnalogInputChannel::RawValueReaded);
-    connect(&mbReader, &ModbusReader::readICP_7018_ch8, &temperature_8, &AnalogInputChannel::RawValueReaded);
+    connect(&dconReader, &DconReader::readICP_7017_ch1, &temperature_1, &AnalogInputChannel::RawValueReaded);
+    connect(&dconReader, &DconReader::readICP_7017_ch2, &temperature_2, &AnalogInputChannel::RawValueReaded);
+    connect(&dconReader, &DconReader::readICP_7017_ch3, &temperature_3, &AnalogInputChannel::RawValueReaded);
+    connect(&dconReader, &DconReader::readICP_7017_ch4, &temperature_4, &AnalogInputChannel::RawValueReaded);
+    connect(&dconReader, &DconReader::readICP_7017_ch5, &temperature_5, &AnalogInputChannel::RawValueReaded);
+    connect(&dconReader, &DconReader::readICP_7017_ch6, &temperature_6, &AnalogInputChannel::RawValueReaded);
+    connect(&dconReader, &DconReader::readICP_7017_ch7, &temperature_7, &AnalogInputChannel::RawValueReaded);
+    connect(&dconReader, &DconReader::readICP_7017_ch8, &temperature_8, &AnalogInputChannel::RawValueReaded);
 
 
     qDebug() << "port:" << comPort;
@@ -82,13 +83,13 @@ MainWindow::MainWindow(QWidget *parent)
     //if (QFile(comPort).exists())
     {
         qDebug() << "port exist";
-        mbReader.Init(comPort);
-        mbReader.StartPoll();
+        dconReader.Init(comPort);
+        dconReader.StartPoll();
     }
 
 
 
-    dialogConfig.SetModbusReader(&mbReader);
+    //dialogConfig.SetModbusReader(&mbReader);
 
     hashAnalogInputChannels[QString("channel_1") + "(" + temperature_1.GetChName()+")"]=&temperature_1;
     hashAnalogInputChannels[QString("channel_2") + "(" + temperature_2.GetChName()+")"]=&temperature_2;
@@ -534,14 +535,14 @@ void MainWindow::ViewDialogConfig()
         if (comPort!=dialogConfig.GetComPort())
         {
             comPort=dialogConfig.GetComPort();
-            mbReader.StopPoll();
+            dconReader.StopPoll();
             //if (!mbReader.TestConnection(comPort))
             //{
             //    QMessageBox::critical(this,"Error","Немає підключення");
                 //return;
             //}
-            mbReader.SetComPort(comPort);
-            mbReader.StartPoll();
+            dconReader.SetComPort(comPort);
+            dconReader.StartPoll();
 
         }
 
