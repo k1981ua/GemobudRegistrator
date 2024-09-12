@@ -54,7 +54,7 @@ bool DconReader::TestConnection(QString serPort, int i7016Addr)
     qDebug() << "Open Com Port:"+serPort;
 
     serial.setPortName(serPort);
-    serial.setBaudRate(QSerialPort::Baud115200);
+    serial.setBaudRate(QSerialPort::Baud38400);
     serial.setDataBits(QSerialPort::Data8);
     serial.setParity(QSerialPort::NoParity);
     serial.setStopBits(QSerialPort::OneStop);
@@ -204,10 +204,12 @@ void DconReader::run()
         int cr='\r';
         //qDebug() << query << "  len:" << strlen(query) << "    " << cr;
         //qDebug() <<
+        //port.flush();
+        port.clear();
         port.write(query,strlen(query));
-        port.waitForBytesWritten(500);
+        port.waitForBytesWritten(300);
 
-        //msleep(200);
+        msleep(150);
         //Формат ответа = > (7char)*6channels (cr) == 44 bytes
          //Формат ответа = > (7char)*8channels (cr) == 58 bytes
 

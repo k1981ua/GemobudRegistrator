@@ -13,14 +13,14 @@
 //#define DCON_BAUD_RATE 38400  //hardcoded
 //baudrate 9600 =30-31 requests per second
 
-#define PARITY 'N'    //'N' even paruty for new registrator
-#define BYTESIZE 8
-#define STOPBITS 1
+//#define PARITY 'N'    //'N' even paruty for new registrator
+//#define BYTESIZE 8
+//#define STOPBITS 1
 
 
 //7017F DCON
 
-//#define ICP_7017_ADDRESS 1     //all hardcoded
+//#define ICP_7017_ADDRESS 1     //all hardcoded in Connect();
 //#define ICP_7018_NUM_CHANNELS 8
 
 

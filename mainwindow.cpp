@@ -665,6 +665,16 @@ void MainWindow::Timer1000ms()
     //wGraphic_1->yAxis->setLabel(movement_1.GetChName()+", "+movement_1.GetEU());
     //wGraphic_2->yAxis->setLabel(movement_2.GetChName()+", "+movement_2.GetEU());
 
+    if (ui->checkBoxTemperature1->isChecked()) { ui->lineEditValueTemperature_1->setText(temperature_1.GetValueString(1)); } else { ui->lineEditValueTemperature_1->setText(""); }
+    if (ui->checkBoxTemperature2->isChecked()) { ui->lineEditValueTemperature_2->setText(temperature_2.GetValueString(1)); } else { ui->lineEditValueTemperature_2->setText(""); }
+    if (ui->checkBoxTemperature3->isChecked()) { ui->lineEditValueTemperature_3->setText(temperature_3.GetValueString(1)); } else { ui->lineEditValueTemperature_3->setText(""); }
+    if (ui->checkBoxTemperature4->isChecked()) { ui->lineEditValueTemperature_4->setText(temperature_4.GetValueString(1)); } else { ui->lineEditValueTemperature_4->setText(""); }
+    if (ui->checkBoxTemperature5->isChecked()) { ui->lineEditValueTemperature_5->setText(temperature_5.GetValueString(1)); } else { ui->lineEditValueTemperature_5->setText(""); }
+    if (ui->checkBoxTemperature6->isChecked()) { ui->lineEditValueTemperature_6->setText(temperature_6.GetValueString(1)); } else { ui->lineEditValueTemperature_6->setText(""); }
+    if (ui->checkBoxTemperature7->isChecked()) { ui->lineEditValueTemperature_7->setText(temperature_7.GetValueString(1)); } else { ui->lineEditValueTemperature_7->setText(""); }
+    if (ui->checkBoxTemperature8->isChecked()) { ui->lineEditValueTemperature_8->setText(temperature_8.GetValueString(1)); } else { ui->lineEditValueTemperature_8->setText(""); }
+
+    /*
     ui->lineEditValueTemperature_1->setText(temperature_1.GetValueString(1));
     ui->lineEditValueTemperature_2->setText(temperature_2.GetValueString(1));
     ui->lineEditValueTemperature_3->setText(temperature_3.GetValueString(1));
@@ -673,7 +683,7 @@ void MainWindow::Timer1000ms()
     ui->lineEditValueTemperature_6->setText(temperature_6.GetValueString(1));
     ui->lineEditValueTemperature_7->setText(temperature_7.GetValueString(1));
     ui->lineEditValueTemperature_8->setText(temperature_8.GetValueString(1));
-
+*/
 
 /*
     if (cmdButton==StartCmd)
